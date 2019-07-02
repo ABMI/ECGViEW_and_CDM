@@ -27,7 +27,6 @@
 * Author : Ji Young Hwang, EMT-P, PhD
 
 #### DATA UPDATE
-* [SQL Query]
 * [#1 R code](https://github.com/ABMI/Emergency-medicine/blob/master/Analysis/KTAS_Anal)    
 * [2019 NEDIS Guideline](https://github.com/ABMI/Emergency-medicine/blob/master/Reference/%E2%98%85NEDIS%20Ver.3.2%20%EC%84%BC%ED%84%B0%EA%B8%89%20%EC%A7%80%EC%B9%A8%EC%84%9C(20190101%EB%B6%80%ED%84%B0%20%EC%A0%81%EC%9A%A9).pdf)
 * [2016 UMLS Code](https://github.com/ABMI/Emergency-medicine/blob/master/Reference/%EC%A3%BC%EC%A6%9D%EC%83%81%EC%BD%94%EB%93%9C%EB%AA%A9%EB%A1%9D_UMLS%20code_20161219.csv)
