@@ -46,7 +46,7 @@
   
   * Analysis
     * [SQL Query]
-    * [R/Python code]    
+    * [R code](https://github.com/ABMI/Emergency-medicine/blob/master/Analysis/KTAS_Anal)    
       
   * Reference
     * [2019 NEDIS Guideline](https://github.com/ABMI/Emergency-medicine/blob/master/Reference/%E2%98%85NEDIS%20Ver.3.2%20%EC%84%BC%ED%84%B0%EA%B8%89%20%EC%A7%80%EC%B9%A8%EC%84%9C(20190101%EB%B6%80%ED%84%B0%20%EC%A0%81%EC%9A%A9).pdf)
