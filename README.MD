@@ -26,7 +26,7 @@
     
   * Reference
 
-- **Association diagnosis and ADR based association rule analysis**
+- **Relationship between ADR and diagnosis based on association rule Analysis**
 
   * Author : Kyuri Kim, BE, Hojun Park, BE, Ji Young Hwang, EMT-P, PhD
 
