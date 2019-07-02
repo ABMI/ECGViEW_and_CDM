@@ -11,8 +11,7 @@ class(transactions$ECGDATE)
 head(trans_sequence)
 table(trans_sequence$SIZE)
 
-
-#Import standard transaction data
+# Import standard transaction data
 transactions <- ecg_severe
   
 # Start time of data to be considered
