@@ -1,0 +1,44 @@
+# cross by cross method
+x<- NEDIS$KTAS_COR
+y<- NEDIS$VISITSTS
+z<- NEDIS$TIME_1
+
+result <- data.frame(KTAS = x, AVPU = y, TIME = z)
+head(result)
+table(result)
+
+d<-cor.test(NEDIS$TIME_1, NEDIS$KTAS_1)
+d
+cor(NEDIS$TIME_1, NEDIS$KTAS_1, use='complete.obs', method='pearson')
+install.packages("corrplot")
+library(corrplot)
+
+cor(NEDIS[,2:5])
+d<-cor(NEDIS[,2:5])
+corrplot(d)
+
+install.packages("gmodels")
+library(gmodels)
+
+crossTable(result$KTAS, result$AVPU) 
+
+# ANOVA
+NEDIS$PTMIKTS1<-as.numeric(NEDIS$PTMIKTS1)
+NEDIS$PTMIKTS2<-as.numeric(NEDIS$PTMIKTS2)
+NEDIS$AVPU<-as.numeric(NEDIS$AVPU)
+
+x<- NEDIS$PTMIKTS1
+y<- NEDIS$PTMIKTS2
+z<- NEDIS$AVPU
+result <- data.frame(AVPU = x, KTAS_1 = y, KTAS_2 = z)
+
+NEDIS$KTAS_1<-as.factor(NEDIS$KTAS_1)
+ano<-aov(NEDIS$TIME_1~KTAS_1, data = NEDIS)
+summary(ano)
+bartlett.test(NEDIS$TIME_1~KTAS_1, data = NEDIS)
+
+install.packages("psych")
+library(psych)
+summary(NEDIS$TIME_1)
+describeBy(NEDIS$TIME_1, group = NEDIS$KTAS_1, mat = T)
+hist(log(NEDIS$TIME_1))
