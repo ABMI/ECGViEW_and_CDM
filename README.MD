@@ -1,7 +1,7 @@
 # Research Project for emergency medicine
 - **Sequence Pattern Analysis for Prediction of Occurrence with Severe Arrhythmia**
 
-  * Author : Ji Young Hwang, EMT-P, PhD, Jung Hyun Byun, BE, Ho Jun Park, BE, Seng Chan You, MD, MS, Seongwon Lee, PhD, Junggu Choi, BE, Jong-Hwan Jang, BA, Dukyong Yoon, MD, PhD, Rae Woong Park, MD, PhD
+  * Author : Ji Young Hwang, EMT-P, PhD, JungHyun Byun, BE, Hojun Park, BE, Seng Chan You, MD, MS, Seongwon Lee, PhD, Junggu Choi, BE, Jong-Hwan Jang, BA, Dukyong Yoon, MD, PhD, Rae Woong Park, MD, PhD
 
   * Related articles
 
