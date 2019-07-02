@@ -1,4 +1,4 @@
-# SUBSTRING Query
+## SUBSTRING Query
 SELECT [person_id]      ,[ecgdate]      ,[Vent_rate]      ,[PR]      ,[QRS_duration]
       ,[RR]      ,[QT]      ,[QTc]      ,[P_axis]      ,[R_axis]      ,[T_axis]
       ,[Diagnosis]      ,[visit_occurrence_id], 
