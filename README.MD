@@ -9,7 +9,7 @@
 * [#1 R code](https://github.com/ABMI/Emergency-medicine/blob/master/Analysis/ECG_Sequences)
 
 ## Conversion of EMR in the ER for the OMOP-CDM 
-* Author : Hojun Park, BE, Ji Young Hwang, EMT-P, PhD, JungHyun Byun, BE
+* Author : Hojun Park, BE, JungHyun Byun, BE, Ji Young Hwang, EMT-P, PhD
 
 #### DATA UPDATE
 * [#1 2019 OHDSI in USA Abstract](https://github.com/ABMI/Emergency-medicine/blob/master/paper/2019%20OHDSI_Conversion%20of%20EMR%20in%20the%20ER%20for%20the%20OMOP-CDM%20in%20South%20Korea.pdf)
