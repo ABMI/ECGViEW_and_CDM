@@ -1,0 +1,36 @@
+# R code: Apriori
+
+ADR<-querySql(conn,"select PATNO, DRUGCODE_1, DRUGCODE_2, DRUGCODE_3, DRUGCODE_4, DRUGCODE_5, DRUGCODE_6, DRUGCODE_7, DRUGCODE_8 from ADR_8")
+head(ADR)
+ADR_1<-querySql(conn,"select PATNO, DRUGCODE from ADR_infor2")
+head(ADR_1)
+
+install.packages("arules")
+library(arules)
+ADR_rule <- apriori(data = ADR, 
+             parameter = list(support = 0.001, 
+             confidence = 0.20, 
+             minlen = 2))
+summary(ADR_rule)
+inspect(ADR_rule[1:20])
+inspect(sort(ADR_rule, by = "lift")[1:20])
+inspect(sort(ADR_rule, by = "support")[1:20])
+
+# scatter plot of association rules
+install.packages("arulesViz") 
+library(arulesViz)
+plot(ADR_rule)
+
+# grouped matrix for association rules
+plot(sort(ADR_rule, by = "support")[1:10], method = "grouped")
+
+# changing font size(vertex.label.cex), arrow 
+plot(ADR_rule, method = "graph", 
+              control = list(type="items"), 
+              vertex.label.cex = 0.7, 
+              edge.arrow.size = 0.3,
+              edge.arrow.width = 2)
+
+
+plot(ADR_rule[20:30], method = "graph", 
+     control = list(type="items"))
