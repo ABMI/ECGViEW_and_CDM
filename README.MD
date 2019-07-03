@@ -16,14 +16,14 @@
 * [SQL Query]
 * [R/Python code]
     
-## Relationship between ADR and diagnosis based on association rule Analysis
+## Relationship between ADR and Diagnosis based on Association Rule Analysis
 * Author : Kyuri Kim, BE, Hojun Park, BE, Ji Young Hwang, EMT-P, PhD
 
 #### DATA UPDATE
 * [SQL Query]
 * [#1 R code](https://github.com/ABMI/Emergency-medicine/blob/master/Analysis/ADR_association%20rule%20anal)
 
-## Clinical Characteristics for Undertriage Patients Based KTAS
+## Clinical Characteristics for Undertriage Patients based KTAS
 * Author : Ji Young Hwang, EMT-P, PhD
 
 #### DATA UPDATE
