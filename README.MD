@@ -21,7 +21,7 @@
 
 #### DATA UPDATE
 * [SQL Query]
-* [R/Python code]
+* [#1 R code](https://github.com/ABMI/Emergency-medicine/blob/master/Analysis/ADR_association%20rule%20anal)
 
 ## Clinical Characteristics for Undertriage Patients Based KTAS
 * Author : Ji Young Hwang, EMT-P, PhD
