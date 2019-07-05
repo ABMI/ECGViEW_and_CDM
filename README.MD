@@ -1,5 +1,3 @@
-# Research Project for emergency medicine
-
 ## Sequence Pattern Analysis for Prediction of Occurrence with Severe Arrhythmia
 
 #### DATA UPDATE
