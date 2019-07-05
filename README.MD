@@ -1,7 +1,6 @@
 # Research Project for emergency medicine
 
 ## Sequence Pattern Analysis for Prediction of Occurrence with Severe Arrhythmia
-* Author : Ji Young Hwang, EMT-P, PhD, JungHyun Byun, BE, Hojun Park, BE, Seng Chan You, MD, MS, Seongwon Lee, PhD, Junggu Choi, BE, Jong-Hwan Jang, BA, Dukyong Yoon, MD, PhD, Rae Woong Park, MD, PhD
 
 #### DATA UPDATE
 * [#1 2019 KOSMI Spring Abstract](https://github.com/ABMI/Emergency-medicine/blob/master/paper/2019%20Sequence%20Pattern%20Analysis%20for%20Prediction%20of%20Occurrence%20with%20Severe%20Arrhythmia_HWANGJIYOUNG.pdf)
@@ -9,7 +8,6 @@
 * [#1 R code](https://github.com/ABMI/Emergency-medicine/blob/master/Analysis/ECG_Sequences)
 
 ## Conversion of EMR in the ER for the OMOP-CDM 
-* Author : Hojun Park, BE, JungHyun Byun, BE, Ji Young Hwang, EMT-P, PhD
 
 #### DATA UPDATE
 * [#1 2019 OHDSI in USA Abstract](https://github.com/ABMI/Emergency-medicine/blob/master/paper/2019%20OHDSI_Conversion%20of%20EMR%20in%20the%20ER%20for%20the%20OMOP-CDM%20in%20South%20Korea.pdf)
@@ -17,14 +15,12 @@
 * [R/Python code]
     
 ## Relationship between ADR and Diagnosis based on Association Rule Analysis
-* Author : Kyuri Kim, BE, Hojun Park, BE, Ji Young Hwang, EMT-P, PhD
 
 #### DATA UPDATE
 * [SQL Query]
 * [#1 R code](https://github.com/ABMI/Emergency-medicine/blob/master/Analysis/ADR_association%20rule%20anal)
 
 ## Clinical Characteristics for Undertriage Patients based KTAS
-* Author : Ji Young Hwang, EMT-P, PhD
 
 #### DATA UPDATE
 * [#1 R code](https://github.com/ABMI/Emergency-medicine/blob/master/Analysis/KTAS_Anal)    
