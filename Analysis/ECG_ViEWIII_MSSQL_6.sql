@@ -9,7 +9,7 @@ SELECT A.[person_id]
       ,[race_concept_id]
       ,[ethnicity_concept_id]
       ,[location_id]
-      ,[provider_id]
+      ,[provider_id]https://github.com/ABMI/ECGViEW_and_CDM/blob/master/Analysis/ECG_ViEWIII_MSSQL_7.sql
       ,[care_site_id]
       ,[person_source_value]
       ,[gender_source_value]
