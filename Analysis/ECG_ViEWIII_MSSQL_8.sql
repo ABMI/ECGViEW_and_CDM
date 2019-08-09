@@ -232,12 +232,14 @@ WHERE A.per_rank <= 0.05;
 
 SELECT *   ----- 전체 데이터 구간 계산해서 새 테이블 생성하기 
 INTO [Hwang_ECDM].[dbo].[C_FINAL_Measurement_RANK] 
-FROM (SELECT [measurement_id]      ,[person_id]      ,[measurement_concept_id]
-      ,[measurement_date]      ,[measurement_datetime]      ,[measurement_type_concept_id]
-      ,[operator_concept_id]      ,[value_as_number]      ,[value_as_concept_id]      ,[unit_concept_id]      ,[range_low]      ,[range_high]      ,[provider_id]
-      ,[visit_occurrence_id]      ,[visit_detail_id]      ,[measurement_source_value]      ,[measurement_source_concept_id]      ,[unit_source_value]      ,[value_source_value]
-	  ,PERCENT_RANK() OVER (PARTITION BY [measurement_concept_id] ORDER BY [value_as_number] DESC) AS per_rank 
-	   FROM [Hwang_ECDM].[dbo].[C_FINAL_Measurement]) A      ------ 34,834,047
+FROM (SELECT [measurement_id] ,[person_id] ,[measurement_concept_id]
+      ,[measurement_date] ,[measurement_datetime] ,[measurement_type_concept_id]
+      ,[operator_concept_id] ,[value_as_number] ,[value_as_concept_id]
+      ,[unit_concept_id] ,[range_low] ,[range_high] ,[provider_id]
+      ,[visit_occurrence_id] ,[visit_detail_id] ,[measurement_source_value]
+      ,[measurement_source_concept_id] ,[unit_source_value] ,[value_source_value]
+      ,PERCENT_RANK() OVER (PARTITION BY [measurement_concept_id] ORDER BY [value_as_number] DESC) AS per_rank 
+FROM [Hwang_ECDM].[dbo].[C_FINAL_Measurement]) A      ------ 34,834,047
 	   
 DELETE FROM  [Hwang_ECDM].[dbo].[C_FINAL_Measurement_1] ---- 범위 지정 삭제 
 WHERE per_rank <= 0.05 OR per_rank >= 0.95
