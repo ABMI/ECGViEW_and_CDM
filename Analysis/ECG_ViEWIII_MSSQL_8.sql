@@ -239,7 +239,12 @@ FROM (SELECT [measurement_id] ,[person_id] ,[measurement_concept_id]
       ,[visit_occurrence_id] ,[visit_detail_id] ,[measurement_source_value]
       ,[measurement_source_concept_id] ,[unit_source_value] ,[value_source_value]
       ,PERCENT_RANK() OVER (PARTITION BY [measurement_concept_id] ORDER BY [value_as_number] DESC) AS per_rank 
-FROM [Hwang_ECDM].[dbo].[C_FINAL_Measurement]) A      ------ 34,834,047
-	   
-DELETE FROM  [Hwang_ECDM].[dbo].[C_FINAL_Measurement_1] ---- 범위 지정 삭제 
+FROM [Hwang_ECDM].[dbo].[C_FINAL_Measurement]) A      ------ 34,834,04
+			 
+----PLAN A (추가 필요)
+----이상치값 -> 5~99.5%에 포함되는 값으로 치환
+			
+			
+----PLAN B (이상치값 전체 삭제)		 
+DELETE FROM  [Hwang_ECDM].[dbo].[C_FINAL_Measurement_1] 
 WHERE per_rank <= 0.05 OR per_rank >= 0.95
