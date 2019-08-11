@@ -2,6 +2,10 @@
 
 ### DATA UPDATE
 
+ * [Analysis_R](https://github.com/ABMI/ECGViEW_and_CDM/tree/master/R)
+ 
+ * [Data preprocessing](https://github.com/ABMI/ECGViEW_and_CDM/tree/master/SQL)
+
 ### ABSTRACT
 
 #### Sequence Pattern Analysis for Prediction of Occurrence with Severe Arrhythmia
