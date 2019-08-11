@@ -1870,11 +1870,40 @@ FROM (SELECT [measurement_id] ,[person_id] ,[measurement_concept_id]
       ,PERCENT_RANK() OVER (PARTITION BY [measurement_concept_id] ORDER BY [value_as_number] DESC) AS per_rank 
 FROM [Hwang_ECDM].[dbo].[C_FINAL_Measurement]) A      ------ 34,834,04
 			 
-----PLAN A (추가 필요)
-----이상치값 -> 5~99.5%에 포함되는 값으로 치환
-			
-			
-----PLAN B (이상치값 전체 삭제)		 
-DELETE FROM  [Hwang_ECDM].[dbo].[C_FINAL_Measurement_1] 
-WHERE per_rank <= 0.05 OR per_rank >= 0.95
-© 2019 GitHub, Inc.
+----PLAN A 
+----MEASUREMENT_CONCEPT별 0.5%~99.5% 해당 Value 테이블 생성
+
+USE Hwang_ECDM
+CREATE TABLE C_FINAL_Measurement_Quartiles
+( 
+    MEASUREMENT_CONCEPT_ID      INT   NOT NULL , 
+   [0.5%]      FLOAT   NOT NULL ,
+   [99.5%]      FLOAT   NOT NULL ,
+ 
+) 
+
+DECLARE @CONCEPT_ID INT
+DECLARE Measure_Cursor CURSOR FOR
+   SELECT DISTINCT measurement_concept_id
+   FROM [Hwang_ECDM].[dbo].[C_FINAL_Measurement] ORDER BY measurement_concept_id
+OPEN Measure_Cursor;
+FETCH NEXT FROM Measure_Cursor INTO @CONCEPT_ID
+WHILE @@FETCH_STATUS = 0
+   BEGIN
+      EXEC('INSERT INTO C_FINAL_Measurement_Quartiles
+      SELECT distinct MEASUREMENT_CONCEPT_ID,
+      PERCENTILE_CONT(0.005) WITHIN GROUP (ORDER BY VALUE_AS_NUMBER) OVER()
+         AS [0.5%],
+       PERCENTILE_CONT(0.995) WITHIN GROUP (ORDER BY VALUE_AS_NUMBER) OVER()
+         AS [99.5%]
+      FROM [Hwang_ECDM].[dbo].[C_FINAL_Measurement] 
+      WHERE MEASUREMENT_CONCEPT_ID = '+@CONCEPT_ID+'
+      AND value_as_number IS NOT NULL AND ISNUMERIC(value_as_number) = 1')
+
+FETCH NEXT FROM Measure_Cursor INTO @CONCEPT_ID
+   END;
+CLOSE Measure_Cursor;
+DEALLOCATE Measure_Cursor;
+GO			
+			 
+----이상치값 -> 0.5~99.5%에 포함되는 값으로 치환 (추가 필요)			
