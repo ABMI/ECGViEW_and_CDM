@@ -1906,4 +1906,62 @@ CLOSE Measure_Cursor;
 DEALLOCATE Measure_Cursor;
 GO			
 			 
-----이상치값 -> 0.5~99.5%에 포함되는 값으로 치환 (추가 필요)			
+----이상치값 -> 0.5~99.5%에 포함되는 값으로 치환 (완성)			
+-----MEASUREMENT_CONCEPT별 0.5%~99.5% 해당 Value 테이블 생성
+
+--------조건에 따라 값 변화되는거 보여주기
+SELECT A.[measurement_concept_id], A.[value_as_number], B.[0.5%], B.[99.5%],
+	   CASE 
+			WHEN A.[value_as_number] < B.[0.5%] THEN B.[0.5%]
+			WHEN A.[value_as_number] > B.[99.5%] THEN B.[99.5%] 
+			ELSE A.[value_as_number]
+			END AS value_as_number_2
+FROM [Hwang_ECDM].[dbo].[A_Measurement] AS A
+	JOIN [Hwang_ECDM].[dbo].[C_FINAL_Measurement_Quartiles] AS B
+	ON A.[measurement_concept_id]  = B.[measurement_concept_id]
+	WHERE A.[value_as_number] < B.[0.5%] 
+	OR A.[value_as_number] > B.[99.5%]     ------- 252,076 / 34,834,047
+
+--------조건에 따라 값 치환한 테이블 생성
+SELECT A.[measurement_id]      
+	  ,A.[person_id]      
+	  ,A.[measurement_concept_id]
+      ,A.[measurement_date]     
+	  ,A.[measurement_datetime]      
+	  ,A.[measurement_type_concept_id]
+      ,A.[operator_concept_id],
+	  CASE 
+			WHEN A.[value_as_number] < B.[0.5%] THEN B.[0.5%]
+			WHEN A.[value_as_number] > B.[99.5%] THEN B.[99.5%] 
+			ELSE A.[value_as_number]
+			END AS value_as_number   
+	  ,A.[value_as_concept_id]      
+	  ,A.[unit_concept_id]      
+	  ,A.[range_low]      
+	  ,A.[range_high]      
+	  ,A.[provider_id]
+      ,A.[visit_occurrence_id]      
+	  ,A.[visit_detail_id]      
+	  ,A.[measurement_source_value]      
+	  ,A.[measurement_source_concept_id]      
+	  ,A.[unit_source_value]      
+	  ,A.[value_source_value]
+	  ,B.[0.5%]
+	  ,B.[99.5%]
+INTO [Hwang_ECDM].[dbo].[A_Measurement_1]
+FROM [Hwang_ECDM].[dbo].[A_Measurement] AS A
+	JOIN [Hwang_ECDM].[dbo].[C_FINAL_Measurement_Quartiles] AS B
+	ON A.[measurement_concept_id]  = B.[measurement_concept_id]
+	WHERE A.[value_as_number] < B.[0.5%] 
+	OR A.[value_as_number] > B.[99.5%]    
+
+-------치환한 테이블 / 원천 테이블에 업데이트 하기 
+SELECT * INTO [Hwang_ECDM].[dbo].[A_Measurement_2]
+FROM [Hwang_ECDM].[dbo].[A_Measurement]
+
+UPDATE [Hwang_ECDM].[dbo].[A_Measurement_2]   ------ Measurement Table 복사본 / ---- 치환값으로 업데이트 (최종)  34,834,047
+	SET [value_as_number] = B.[value_as_number]
+	FROM [Hwang_ECDM].[dbo].[A_Measurement_2] AS A
+	JOIN [Hwang_ECDM].[dbo].[A_Measurement_1] AS B  ------- 치환값 넣은 조인 테이블 (252,076)
+		ON A.[measurement_id] = B.[measurement_id]	 
+			 
