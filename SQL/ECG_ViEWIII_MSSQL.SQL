@@ -1107,6 +1107,15 @@ SELECT [person_id]
 INTO [Hwang_ECDM].[dbo].[A_FINAL_Person_1]
 FROM [Hwang_ECDM].[dbo].[A_FINAL_Person] 
 
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
 ---################################################################################################################
 ---ECG VIEW DATATHON SAMPLE DATA Extration 추가 작업
 ---1) 민감 질병에 해당되는 환자군 삭제 -> 모든 테이블 적용 (완료) B_FINAL TABLE 해당 / A_FINAL은 민감 질병군 포함
